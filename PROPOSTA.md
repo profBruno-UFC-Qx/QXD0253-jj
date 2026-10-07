@@ -43,6 +43,6 @@ Permite o cálculo e análise de impostos, descontos trabalhistas, dentre outros
 
 ## :spiral_calendar: Entidades ou tabelas do sistema
 
-- **Usuario:** Armazena os dados de acesso e o perfil (id, nome, email, senha, tipo_usuario, numero_dependentes).
+- **Usuario:** Armazena os dados de acesso e o perfil (id, nome, email, senha, tipo_usuario, numero_dependentes, deducao_pensao, deducao_saude, outras_deducoes, criado_em, atualizado_em).
 - **Simulacao:** Registra o histórico de cálculos feitos pelos usuários logados (id, id_usuario, salario_bruto, valor_inss, valor_irpf, outros_descontos, salario_liquido, data_calculo).
-- **TabelaImposto:** Entidade responsável por guardar as faixas de contribuição atualizadas da legislação (id, tipo_imposto, ano_vigencia, faixa_salarial_inicio, faixa_salarial_fim, aliquota, parcela_deduzir).
+- **TabelaImposto:** Entidade responsável por guardar as faixas de contribuição com controle de vigência da legislação (id, tipo_imposto, ano_vigencia, data_inicio, data_fim, ativo, faixa_salarial_inicio, faixa_salarial_fim, aliquota, parcela_deduzir).
