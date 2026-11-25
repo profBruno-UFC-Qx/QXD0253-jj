@@ -7,12 +7,183 @@
   </head>
   <body>
     <header id="navbar"></header>
+
     <main class="container">
-      <h1>Tributo Fácil</h1>
-      <p>Calculadora de INSS, IRPF e salário líquido.</p>
-      <section id="calculadora"></section>
-      <section id="extrato"></section>
+      <div class="barra-superior">
+        <button type="button" id="btn-solicitar-admin" class="btn-link">
+          Solicitação para administrador
+        </button>
+      </div>
+
+      <section class="resume">
+        <h1>Tributo Fácil</h1>
+        <p>Calculadora de INSS, Imposto de Renda (IRPF) e salário líquido.</p>
+      </section>
+
+      <div class="seletor-calculo">
+        <label for="tipo-calculo">Selecione o cálculo</label>
+        <select id="tipo-calculo" name="tipo_calculo" form="form-calculadora">
+          <option value="inss">INSS</option>
+          <option value="irpf">Imposto de Renda (IRPF)</option>
+          <option value="salario-liquido">Salário Líquido</option>
+        </select>
+      </div>
+
+      <div class="painel-calculadora">
+        <section id="titulo-calculadora" aria-labelledby="titulo-calculadora">
+          <h2 id="titulo-calculadora">Simulação do Cálculo</h2>
+
+          <form id="form-calculadora">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="salario-bruto">Digite seu Salário Bruto (R$)</label>
+                <input
+                  type="number"
+                  id="salario-bruto"
+                  name="salario-bruto"
+                  min="0"
+                  step="0.01"
+                  placeholder="Ex: 2500.00"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="numero-dependentes">Número de Dependentes</label>
+                <input
+                  type="number"
+                  id="numero-dependentes"
+                  name="numero-dependentes"
+                  min="0"
+                  step="1"
+                  value="0"
+                />
+              </div>
+            </div>
+
+            <fieldset class="grupo-deducoes">
+              <legend>Deduções e Demais Descontos (opcional)</legend>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="deducao-pensao">Pensão Alimentícia (R$)</label>
+                  <input
+                    type="number"
+                    id="deducao-pensao"
+                    name="deducao-pensao"
+                    min="0"
+                    step="0.01"
+                    value="0"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="deducao-saude">Plano de Saúde (R$)</label>
+                  <input
+                    type="number"
+                    id="deducao-saude"
+                    name="deducao-saude"
+                    min="0"
+                    step="0.01"
+                    value="0"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="outras-deducoes">Outras Deduções (R$)</label>
+                  <input
+                    type="number"
+                    id="outras-deducoes"
+                    name="outras-deducoes"
+                    min="0"
+                    step="0.01"
+                    value="0"
+                  />
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="form-acoes">
+              <button type="submit" class="btn-primary">Calcular</button>
+              <button type="reset" class="btn-secondary">Limpar</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="extrato" aria-labelledby="titulo-extrato">
+          <h2 id="titulo-extrato">Resultado e Extrato</h2>
+
+          <div class="resumo-valores">
+            <div class="resumo-item">
+              <span>Salário Bruto</span>
+              <output id="result-salario-bruto">R$ 0,00</output>
+            </div>
+
+            <div class="resumo-item">
+              <span>Desconto INSS</span>
+              <output id="result-inss">R$ 0,00</output>
+            </div>
+
+            <div class="resumo-item">
+              <span>Desconto IRPF</span>
+              <output id="result-irpf">R$ 0,00</output>
+            </div>
+
+            <div class="resumo-item">
+              <span>Salário Líquido</span>
+              <output id="result-salario-liquido">R$ 0,00</output>
+            </div>
+
+            <div class="resumo-item">
+              <span>Outros Descontos</span>
+              <output id="result-outros-descontos">R$ 0,00</output>
+            </div>
+          </div>
+
+          <div class="extrato-faixas">
+            <h3>Faixas de Imposto Aplicadas</h3>
+            <table class="tabela-faixas">
+              <thead>
+                <tr>
+                  <th>Imposto</th>
+                  <th>Faixa Salarial</th>
+                  <th>Alíquota</th>
+                  <th>Parcela a Deduzir</th>
+                  <th>Valor Aplicado</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-faixas">
+                <tr>
+                  <td colspan="5">
+                    Preencha com seu salário bruto e clique em calcular para ver
+                    os detalhes.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="extrato-rodape">
+            <p id="aviso-visitante" class="aviso-visitante">
+              <a href="/login.html"
+                >Cadastre-se ou faça login para mais possibilidades, como salvar
+                seus cálculos em um histórico ou exportá-los em PDF.</a
+              >
+            </p>
+
+            <div id="acoes-usuario-logado" class="extrato-acoes">
+              <button type="button" id="btn-salvar-extrato" class="btn-primary">
+                Adicionar ao Histórico
+              </button>
+              <button type="button" id="btn-exportar-pdf" class="btn-secondary">
+                Exportar em PDF
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
+
     <script type="module" src="/src/pages/home.ts"></script>
   </body>
 </html>
