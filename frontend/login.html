@@ -8,8 +8,111 @@
   <body>
     <header id="navbar"></header>
     <main class="container">
-      <h1>Entrar / Criar conta</h1>
-      <section id="auth-container"></section>
+      <section
+        id="secao-login"
+        class="auth-card"
+        aria-labelledby="titulo-login"
+      >
+        <h1 id="titulo-login">Entrar na Conta</h1>
+
+        <form id="id-login">
+          <div class="form-group">
+            <label for="login-usuario">Nome de Usuário ou e-mail</label>
+            <input
+              type="text"
+              id="login-usuario"
+              name="identifier"
+              autocomplete="username"
+              placeholder="Digite seu nome de usuário ou e-mail"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="login-senha">Senha</label>
+            <input
+              type="password"
+              id="login-senha"
+              name="password"
+              autocomplete="current-password"
+              placeholder="Digite sua senha"
+              required
+            />
+          </div>
+
+          <div class="form-check">
+            <input
+              type="checkbox"
+              id="manter-conectado"
+              name="manter-conectado"
+            />
+            <label for="manter-conectado">Manter conectado</label>
+          </div>
+
+          <button type="submit" class="btn-entrar">Entrar</button>
+        </form>
+
+        <p class="auth-alternar">
+          Não tem uma conta?
+          <button type="button" id="btn-alternar-cadastro" class="btn-link">
+            Cadastre-se
+          </button>
+        </p>
+      </section>
+
+      <section
+        id="secao-cadastro"
+        class="auth-card"
+        aria-labelledby="titulo-cadastro"
+      >
+        <h2 id="titulo-cadastro">Criar Conta</h2>
+        <form id="form-cadastro">
+          <div class="form-group">
+            <label for="cadastro-nome">Nome Completo</label>
+            <input
+              type="text"
+              id="cadastro-nome"
+              name="cadastro-nome"
+              autocomplete="name"
+              placeholder="Digite seu nome completo"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="cadastro-email">E-mail</label>
+            <input
+              type="email"
+              id="cadastro-email"
+              name="cadastro-email"
+              autocomplete="email"
+              placeholder="Digite seu e-mail"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="cadastro-senha">Senha</label>
+            <input
+              type="password"
+              id="cadastro-senha"
+              name="cadastro-senha"
+              autocomplete="new-password"
+              placeholder="Digite sua senha"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn-cadastrar">Criar Conta</button>
+        </form>
+
+        <p class="auth-alternar">
+          Já tem uma conta?
+          <button type="button" id="btn-alternar-login" class="btn-link">
+            Entrar
+          </button>
+        </p>
+      </section>
     </main>
     <script type="module" src="/src/pages/login.ts"></script>
   </body>
