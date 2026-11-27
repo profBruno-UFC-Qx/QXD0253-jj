@@ -8,8 +8,110 @@
   <body>
     <header id="navbar"></header>
     <main class="container">
-      <h1>Meu Perfil</h1>
-      <section id="perfil-container"></section>
+      <section class="intro">
+        <h1>Meu Perfil</h1>
+        <p>Visualize e gerencie suas informações de usuário.</p>
+      </section>
+
+      <section
+        id="dados-conta"
+        class="perfil-card"
+        aria-labelledby="titulo-dados-conta"
+      >
+        <h2 id="titulo-dados-conta">Dados da Conta</h2>
+
+        <dl class="lista-info">
+          <div class="info-item">
+            <dt>Nome de Usuário</dt>
+            <dd id="perfil-usuario">-</dd>
+          </div>
+
+          <div class="info-item">
+            <dt>E-mail</dt>
+            <dd id="perfil-email">-</dd>
+          </div>
+
+          <div class="info-item">
+            <dt>Tipo de Conta</dt>
+            <dd id="perfil-tipo-usuario">Usuário Padrão</dd>
+          </div>
+        </dl>
+
+        <div class="card-acoes">
+          <button type="button" id="btn-solicitar-admin" class="btn-link">
+            Solicitar Acesso de Administrador
+          </button>
+        </div>
+      </section>
+
+      <section
+        id="alterar-senha"
+        class="perfil-card"
+        aria-labelledby="titulo-alterar-senha"
+      >
+        <h2 id="titulo-alterar-senha">Alterar Senha</h2>
+
+        <form id="form-alterar-senha">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="senha-atual">Senha Atual</label>
+              <input
+                type="password"
+                id="senha-atual"
+                name="senha-atual"
+                autocomplete="current-password"
+                placeholder="Digite sua senha atual"
+                required
+              />
+            </div>
+
+            <div class="form-goup">
+              <label for="nova-senha">Nova Senha</label>
+              <input
+                type="password"
+                id="nova-senha"
+                name="nova-senha"
+                autocomplete="new-password"
+                placeholder="Digite sua nova senha"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="confirmar-senha">Confirmar Nova Senha</label>
+              <input
+                type="password"
+                id="confirmar-senha"
+                name="confirmar-senha"
+                autocomplete="new-password"
+                placeholder="Confirme sua nova senha"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-acoes">
+            <button type="submit" id="btn-alterar-senha" class="btn-primary">
+              Alterar Senha
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section
+        id="resumo-historico"
+        class="perfil-card"
+        aria-labelledby="titulo-resumo-historico"
+      >
+        <h2 id="titulo-resumo-historico">Histórico de Simulações</h2>
+        <p>Clique abaixo para visualizar seu histórico de simulações.</p>
+
+        <div class="card-acoes">
+          <a href="/historico.html" id="btn-ver-historico" class="btn-link"
+            >Ver Histórico</a
+          >
+        </div>
+      </section>
     </main>
     <script type="module" src="/src/pages/perfil.ts"></script>
   </body>
